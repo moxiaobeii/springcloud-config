@@ -14,7 +14,7 @@ mybatis:
 spring:
   profiles: dev
   application:
-    name: springcloud-eureka   #很重要。对外暴露的微服务的名字
+    name: springcloud-config-dept-client    #很重要。对外暴露的微服务的名字
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource   #数据源
     driver-class-name: com.mysql.jdbc.Driver     #驱动
@@ -54,11 +54,11 @@ mybatis:
 spring:
   profiles: test
   application:
-    name: springcloud-eureka   #很重要。对外暴露的微服务的名字
+    name: springcloud-config-dept-client   #很重要。对外暴露的微服务的名字
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource   #数据源
     driver-class-name: com.mysql.jdbc.Driver     #驱动
-    url: jdbc:mysql://localhost:3306/springcloud?useSSL=false&useUnicode=true&characterEncoding=UTF-8   #数据库名称
+    url: jdbc:mysql://localhost:3306/springcloud02?useSSL=false&useUnicode=true&characterEncoding=UTF-8   #数据库名称
     username: root
     password: admin
     dbcp2:

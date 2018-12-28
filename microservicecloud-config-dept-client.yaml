@@ -1,0 +1,83 @@
+spring:
+  profiles:
+    active: 
+    - dev
+---
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.momo.entity
+  mapper-locations: classpath:mybatis/mapper/*.xml    #天坑：mapper-locations:记得locations有个s，因为有多个配置文件
+
+spring:
+  profiles: dev
+  application:
+    name: springcloud-eureka   #很重要。对外暴露的微服务的名字
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource   #数据源
+    driver-class-name: com.mysql.jdbc.Driver     #驱动
+    url: jdbc:mysql://localhost:3306/springcloud?useSSL=false&useUnicode=true&characterEncoding=UTF-8   #数据库名称
+    username: root
+    password: admin
+    dbcp2:
+      min-idle: 5              #连接池的最小维持连接数
+      initial-size: 5          #初始化连接数
+      max-total: 5             #最大连接数
+      max-wait-millis: 200     #等待获取连接的最大超时时间
+
+#客户端注册进入eureka服务列表内
+eureka:
+  client:
+    service-url:   #集群
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept-8001.com   #自定义微服务名称
+    prefer-ip-address: true   #访问路径可以显示ip地址
+
+info:
+  app.name: atguigu-microservicecloud
+  company.name: www.atguigu.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+---
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.momo.entity
+  mapper-locations: classpath:mybatis/mapper/*.xml    #天坑：mapper-locations:记得locations有个s，因为有多个配置文件
+
+spring:
+  profiles: test
+  application:
+    name: springcloud-eureka   #很重要。对外暴露的微服务的名字
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource   #数据源
+    driver-class-name: com.mysql.jdbc.Driver     #驱动
+    url: jdbc:mysql://localhost:3306/springcloud?useSSL=false&useUnicode=true&characterEncoding=UTF-8   #数据库名称
+    username: root
+    password: admin
+    dbcp2:
+      min-idle: 5              #连接池的最小维持连接数
+      initial-size: 5          #初始化连接数
+      max-total: 5             #最大连接数
+      max-wait-millis: 200     #等待获取连接的最大超时时间
+
+#客户端注册进入eureka服务列表内
+eureka:
+  client:
+    service-url:   #集群
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept-8001.com   #自定义微服务名称
+    prefer-ip-address: true   #访问路径可以显示ip地址
+
+info:
+  app.name: atguigu-microservicecloud
+  company.name: www.atguigu.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

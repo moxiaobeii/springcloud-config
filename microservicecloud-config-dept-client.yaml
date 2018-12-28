@@ -31,7 +31,7 @@ spring:
 eureka:
   client:
     service-url:   #集群
-      defaultZone: http://eureka7001.com:7001/eureka
+      defaultZone: http://eureka-dev.com:7001/eureka
   instance:
     instance-id: dept-8001.com   #自定义微服务名称
     prefer-ip-address: true   #访问路径可以显示ip地址
@@ -71,7 +71,7 @@ spring:
 eureka:
   client:
     service-url:   #集群
-      defaultZone: http://eureka7001.com:7001/eureka
+      defaultZone: http://eureka-dev.com:7001/eureka
   instance:
     instance-id: dept-8001.com   #自定义微服务名称
     prefer-ip-address: true   #访问路径可以显示ip地址
